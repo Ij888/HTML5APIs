@@ -1,2 +1,64 @@
 <!-- Drag and Drop -->
 
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+			body{font-family: arial;}
+			.reddiv, .greendiv{
+				float: left;
+				width: 500px;
+				height: 65px;
+				margin: 10px;
+				padding: 10px;
+				border: 1px solid black; 
+			}
+			
+			.bluediv{
+				width: 250px;
+				height: 35px;
+				margin: ;
+				padding: 10px;
+				border: 1px solid black;
+			}
+			
+			.red{background-color: crimson;}
+			.green{background-color: forestgreen;}
+			.blue{background-color: skyblue;}
+		</style>
+			
+		<script>
+			function allowDrop(ev) {
+				ev.preventDefault();
+			}
+			
+			function drag(ev) {
+				ev.dataTransfer.setData("text", ev.target.id);
+			}
+			
+			function drop(ev) {
+				ev.preventDefault();
+				var data = ev.dataTransfer.getData("text");
+				ev.target.appendChild(document.getElementById(data));
+			}
+		</script>
+	</head>
+		<body>
+
+			<h2>Drag and Drop</h2>
+			<p>Drag the blue box back and forth between the two div elements.</p>
+
+			<div class="reddiv red" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<h3>Red Box</h3>
+				<div class="bluediv blue" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+					<h3>Draggable Blue Box</h3>
+				</div>
+			</div>
+
+			<div class="greendiv green" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<h3>Green Box</h3>
+			</div>
+
+		</body>
+</html>
+
