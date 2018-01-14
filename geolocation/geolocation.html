@@ -8,14 +8,14 @@
 
 <button onclick="getLocation()">Try It</button>
 
-	<p class="textbox"></p>
+	<p class="textbox">#</p>
 
 		<script>
-			var x = document.getElementsByClassName("textbox"); // variable to hold...
+			var x = document.getElementsByClassName("textbox"); // variable?? to hold returned geodata
 
 			function getLocation() {
 				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(showPosition);
+					navigator.geolocation.watchPosition(showPosition);
 				} else { 
 					x.innerHTML = "Geolocation is not supported by this browser.";
 				}
